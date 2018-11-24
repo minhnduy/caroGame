@@ -42,6 +42,9 @@
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.pictureTitle = new System.Windows.Forms.PictureBox();
+            this.lbChessO = new System.Windows.Forms.Label();
+            this.lbChessX = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCom = new System.Windows.Forms.Button();
@@ -49,9 +52,6 @@
             this.rtText = new System.Windows.Forms.RichTextBox();
             this.pnlCaroBoard = new System.Windows.Forms.Panel();
             this.timerCount = new System.Windows.Forms.Timer(this.components);
-            this.pictureTitle = new System.Windows.Forms.PictureBox();
-            this.lbChessX = new System.Windows.Forms.Label();
-            this.lbChessO = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTitle)).BeginInit();
@@ -167,6 +167,34 @@
             this.pnlDisplay.Size = new System.Drawing.Size(784, 570);
             this.pnlDisplay.TabIndex = 1;
             // 
+            // pictureTitle
+            // 
+            this.pictureTitle.Image = ((System.Drawing.Image)(resources.GetObject("pictureTitle.Image")));
+            this.pictureTitle.Location = new System.Drawing.Point(550, 30);
+            this.pictureTitle.Name = "pictureTitle";
+            this.pictureTitle.Size = new System.Drawing.Size(215, 215);
+            this.pictureTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureTitle.TabIndex = 0;
+            this.pictureTitle.TabStop = false;
+            // 
+            // lbChessO
+            // 
+            this.lbChessO.Font = new System.Drawing.Font("iCiel Cucho Bold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChessO.Location = new System.Drawing.Point(427, 537);
+            this.lbChessO.Name = "lbChessO";
+            this.lbChessO.Size = new System.Drawing.Size(100, 23);
+            this.lbChessO.TabIndex = 4;
+            this.lbChessO.Text = "Chess O: 0";
+            // 
+            // lbChessX
+            // 
+            this.lbChessX.Font = new System.Drawing.Font("iCiel Cucho Bold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbChessX.Location = new System.Drawing.Point(272, 537);
+            this.lbChessX.Name = "lbChessX";
+            this.lbChessX.Size = new System.Drawing.Size(100, 23);
+            this.lbChessX.TabIndex = 4;
+            this.lbChessX.Text = "Chess X: 0";
+            // 
             // lbTime
             // 
             this.lbTime.Font = new System.Drawing.Font("iCiel Cucho Bold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -178,11 +206,16 @@
             // 
             // btnExit
             // 
-            this.btnExit.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnExit.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("iCiel Cucho Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(550, 500);
+            this.btnExit.FlatAppearance.BorderColor = System.Drawing.Color.AntiqueWhite;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.FlatAppearance.CheckedBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("iCiel Cucho Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)), true);
+            this.btnExit.Location = new System.Drawing.Point(550, 501);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(215, 30);
             this.btnExit.TabIndex = 3;
@@ -192,11 +225,16 @@
             // 
             // btnCom
             // 
-            this.btnCom.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnCom.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btnCom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCom.Font = new System.Drawing.Font("iCiel Cucho Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btnCom.Location = new System.Drawing.Point(550, 463);
+            this.btnCom.FlatAppearance.BorderColor = System.Drawing.Color.AntiqueWhite;
+            this.btnCom.FlatAppearance.BorderSize = 0;
+            this.btnCom.FlatAppearance.CheckedBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnCom.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnCom.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnCom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCom.Font = new System.Drawing.Font("iCiel Cucho Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)), true);
+            this.btnCom.Location = new System.Drawing.Point(550, 464);
             this.btnCom.Name = "btnCom";
             this.btnCom.Size = new System.Drawing.Size(215, 30);
             this.btnCom.TabIndex = 3;
@@ -206,11 +244,16 @@
             // 
             // btnPlayer
             // 
-            this.btnPlayer.BackColor = System.Drawing.Color.LemonChiffon;
+            this.btnPlayer.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btnPlayer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPlayer.Font = new System.Drawing.Font("iCiel Cucho Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            this.btnPlayer.Location = new System.Drawing.Point(550, 426);
+            this.btnPlayer.FlatAppearance.BorderColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPlayer.FlatAppearance.BorderSize = 0;
+            this.btnPlayer.FlatAppearance.CheckedBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPlayer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPlayer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.AntiqueWhite;
+            this.btnPlayer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPlayer.Font = new System.Drawing.Font("iCiel Cucho Bold", 17F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)), true);
+            this.btnPlayer.Location = new System.Drawing.Point(550, 427);
             this.btnPlayer.Name = "btnPlayer";
             this.btnPlayer.Size = new System.Drawing.Size(215, 30);
             this.btnPlayer.TabIndex = 3;
@@ -221,6 +264,8 @@
             // rtText
             // 
             this.rtText.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.rtText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtText.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rtText.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtText.Location = new System.Drawing.Point(550, 258);
             this.rtText.Name = "rtText";
@@ -245,34 +290,6 @@
             this.timerCount.Enabled = true;
             this.timerCount.Interval = 1000;
             this.timerCount.Tick += new System.EventHandler(this.timerCount_Tick);
-            // 
-            // pictureTitle
-            // 
-            this.pictureTitle.Image = ((System.Drawing.Image)(resources.GetObject("pictureTitle.Image")));
-            this.pictureTitle.Location = new System.Drawing.Point(550, 30);
-            this.pictureTitle.Name = "pictureTitle";
-            this.pictureTitle.Size = new System.Drawing.Size(215, 215);
-            this.pictureTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureTitle.TabIndex = 0;
-            this.pictureTitle.TabStop = false;
-            // 
-            // lbChessX
-            // 
-            this.lbChessX.Font = new System.Drawing.Font("iCiel Cucho Bold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChessX.Location = new System.Drawing.Point(272, 537);
-            this.lbChessX.Name = "lbChessX";
-            this.lbChessX.Size = new System.Drawing.Size(100, 23);
-            this.lbChessX.TabIndex = 4;
-            this.lbChessX.Text = "Chess X: 0";
-            // 
-            // lbChessO
-            // 
-            this.lbChessO.Font = new System.Drawing.Font("iCiel Cucho Bold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbChessO.Location = new System.Drawing.Point(427, 537);
-            this.lbChessO.Name = "lbChessO";
-            this.lbChessO.Size = new System.Drawing.Size(100, 23);
-            this.lbChessO.TabIndex = 4;
-            this.lbChessO.Text = "Chess O: 0";
             // 
             // frmDisplay
             // 

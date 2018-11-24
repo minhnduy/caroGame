@@ -155,6 +155,5 @@ namespace caro_Project_CShape
                 countTime = countTime + 1;
             }
         }
-
     }
 }
