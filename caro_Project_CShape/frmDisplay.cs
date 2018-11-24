@@ -117,22 +117,6 @@ namespace caro_Project_CShape
                 "    Luật hòa\n + Trong quá trình chơi, khi một chời chơi xin hòa và đối phương đồng ý." +
                 "\n + Khi đã đi hết bàn cờ mà chưa phân thắng bại thì cũng coi như hòa.";
         }
-        private void timerCount_Tick(object sender, EventArgs e)
-        {
-            if (_chess.ready == true)
-            {
-                lbTime.Text = "Time: " + (30 - countTime).ToString() + "s";
-                if (countTime == 30)
-                {
-                    _chess.ready = false;
-                    if (_chess.turn == 1)
-                        MessageBox.Show("Time Out cờ O thua ");
-                    else
-                        MessageBox.Show("Time Out cờ X thua");
-                }
-                countTime = countTime + 1;
-            }
-        }
         private void undoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             countTime = 0;
@@ -155,5 +139,22 @@ namespace caro_Project_CShape
                 e.Cancel = true;
             }
         }
+        private void timerCount_Tick(object sender, EventArgs e)
+        {
+            if (_chess.ready == true)
+            {
+                lbTime.Text = "Time: " + (30 - countTime).ToString() + "s";
+                if (countTime == 30)
+                {
+                    _chess.ready = false;
+                    if (_chess.turn == 1)
+                        MessageBox.Show("Time Out cờ O thua ", "Kết Quả Trò Chơi", MessageBoxButtons.OK);
+                    else
+                        MessageBox.Show("Time Out cờ X thua", "Kết Quả Trò Chơi", MessageBoxButtons.OK);
+                }
+                countTime = countTime + 1;
+            }
+        }
+
     }
 }
