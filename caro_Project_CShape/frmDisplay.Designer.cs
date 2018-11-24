@@ -86,7 +86,7 @@
             this.playerVsPlayerToolStripMenuItem,
             this.playerVsComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playerVsPlayerToolStripMenuItem
@@ -107,20 +107,20 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -220,7 +220,7 @@
             this.btnExit.Size = new System.Drawing.Size(215, 30);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnCom
@@ -239,7 +239,7 @@
             this.btnCom.Size = new System.Drawing.Size(215, 30);
             this.btnCom.TabIndex = 3;
             this.btnCom.Text = "Player vs Computer";
-            this.btnCom.UseVisualStyleBackColor = false;
+            this.btnCom.UseVisualStyleBackColor = true;
             this.btnCom.Click += new System.EventHandler(this.btnCom_Click);
             // 
             // btnPlayer
@@ -258,7 +258,7 @@
             this.btnPlayer.Size = new System.Drawing.Size(215, 30);
             this.btnPlayer.TabIndex = 3;
             this.btnPlayer.Text = "Player vs Player";
-            this.btnPlayer.UseVisualStyleBackColor = false;
+            this.btnPlayer.UseVisualStyleBackColor = true;
             this.btnPlayer.Click += new System.EventHandler(this.btnPlayer_Click);
             // 
             // rtText
@@ -272,7 +272,7 @@
             this.rtText.ReadOnly = true;
             this.rtText.Size = new System.Drawing.Size(215, 155);
             this.rtText.TabIndex = 2;
-            this.rtText.Text = "";
+            this.rtText.Text = "Lượt chơi:\n        O đi trước\n        X đi sau ";
             // 
             // pnlCaroBoard
             // 

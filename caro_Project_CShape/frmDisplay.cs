@@ -71,25 +71,30 @@ namespace caro_Project_CShape
         }
         private void btnPlayer_Click(object sender, EventArgs e)
         {
-            frmDisplay_Load(sender, e);
-            _chess.resetTurn();
-            countTime = 0;
-            g.Clear(pnlCaroBoard.BackColor);
-            _chess.start_2Player(g);
-            lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
-            lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
+            if (MessageBox.Show("Bạn có chắc là muốn chơi mới?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                frmDisplay_Load(sender, e);
+                _chess.resetTurn();
+                countTime = 0;
+                g.Clear(pnlCaroBoard.BackColor);
+                _chess.start_2Player(g);
+                lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
+                lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
 
+            }
         }
         private void btnCom_Click(object sender, EventArgs e)
         {
-            frmDisplay_Load(sender, e);
-            _chess.resetTurn();
-            g.Clear(pnlCaroBoard.BackColor);
-            _chess.start_Computer(g);
-            countTime = 0;
-                        lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
-            lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
-
+            if (MessageBox.Show("Bạn có chắc là muốn chơi mới?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                frmDisplay_Load(sender, e);
+                _chess.resetTurn();
+                g.Clear(pnlCaroBoard.BackColor);
+                _chess.start_Computer(g);
+                countTime = 0;
+                lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
+                lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
+            }
         }
 
         #endregion
