@@ -15,7 +15,6 @@ namespace caro_Project_CShape
         public bool ready;
         public int turn;
         public int gameMode;//1.computer -- 2. 2 player
-        //public Pen pen;
         public chessBoard _chessBoard;
         public int check_win;
         public int chessX = 0, chessO = 0;
@@ -124,7 +123,7 @@ namespace caro_Project_CShape
                     chess c1 = s_Chess.Pop();
                     int owned = _arrChess[c1.Row, c1.Column].Own;
                     s_owned.Push(owned);
-                    turn = 2;
+                    turn = 2;//chess X onw Player
                     _arrChess[c.Row, c.Column].Own = 0;
                     _arrChess[c1.Row, c1.Column].Own = 0;
                     _chessBoard.paintChessBoard(g);
@@ -433,7 +432,7 @@ namespace caro_Project_CShape
                     break;
                 }
             }
-            if (chessPlayer == 2)
+            if (chessPlayer == 2)//bị chặn 2 đầu
                 return 0;
             if (chessPlayer == 0)
                 total += arrAttack[chessCom] * 2;

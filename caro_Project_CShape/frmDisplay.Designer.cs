@@ -42,6 +42,9 @@
             this.hướngDẫnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlDisplay = new System.Windows.Forms.Panel();
+            this.pnlText = new System.Windows.Forms.Panel();
+            this.lbTurn = new System.Windows.Forms.Label();
+            this.lbTextHuongDan = new System.Windows.Forms.Label();
             this.pictureTitle = new System.Windows.Forms.PictureBox();
             this.lbChessO = new System.Windows.Forms.Label();
             this.lbChessX = new System.Windows.Forms.Label();
@@ -49,11 +52,12 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.btnCom = new System.Windows.Forms.Button();
             this.btnPlayer = new System.Windows.Forms.Button();
-            this.rtText = new System.Windows.Forms.RichTextBox();
             this.pnlCaroBoard = new System.Windows.Forms.Panel();
             this.timerCount = new System.Windows.Forms.Timer(this.components);
+            this.timeText = new System.Windows.Forms.Timer(this.components);
             this.menuStrip.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
+            this.pnlText.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTitle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +90,7 @@
             this.playerVsPlayerToolStripMenuItem,
             this.playerVsComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playerVsPlayerToolStripMenuItem
@@ -107,20 +111,20 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -150,6 +154,8 @@
             // pnlDisplay
             // 
             this.pnlDisplay.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.pnlDisplay.CausesValidation = false;
+            this.pnlDisplay.Controls.Add(this.pnlText);
             this.pnlDisplay.Controls.Add(this.pictureTitle);
             this.pnlDisplay.Controls.Add(this.lbChessO);
             this.pnlDisplay.Controls.Add(this.lbChessX);
@@ -157,7 +163,6 @@
             this.pnlDisplay.Controls.Add(this.btnExit);
             this.pnlDisplay.Controls.Add(this.btnCom);
             this.pnlDisplay.Controls.Add(this.btnPlayer);
-            this.pnlDisplay.Controls.Add(this.rtText);
             this.pnlDisplay.Controls.Add(this.pnlCaroBoard);
             this.pnlDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlDisplay.Location = new System.Drawing.Point(0, 24);
@@ -166,6 +171,36 @@
             this.pnlDisplay.Name = "pnlDisplay";
             this.pnlDisplay.Size = new System.Drawing.Size(784, 570);
             this.pnlDisplay.TabIndex = 1;
+            // 
+            // pnlText
+            // 
+            this.pnlText.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pnlText.Controls.Add(this.lbTurn);
+            this.pnlText.Controls.Add(this.lbTextHuongDan);
+            this.pnlText.Location = new System.Drawing.Point(550, 250);
+            this.pnlText.Name = "pnlText";
+            this.pnlText.Size = new System.Drawing.Size(215, 178);
+            this.pnlText.TabIndex = 5;
+            // 
+            // lbTurn
+            // 
+            this.lbTurn.AutoSize = true;
+            this.lbTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTurn.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbTurn.Location = new System.Drawing.Point(18, 158);
+            this.lbTurn.Name = "lbTurn";
+            this.lbTurn.Size = new System.Drawing.Size(0, 17);
+            this.lbTurn.TabIndex = 1;
+            // 
+            // lbTextHuongDan
+            // 
+            this.lbTextHuongDan.AutoSize = true;
+            this.lbTextHuongDan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTextHuongDan.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.lbTextHuongDan.Location = new System.Drawing.Point(13, 156);
+            this.lbTextHuongDan.Name = "lbTextHuongDan";
+            this.lbTextHuongDan.Size = new System.Drawing.Size(0, 17);
+            this.lbTextHuongDan.TabIndex = 0;
             // 
             // pictureTitle
             // 
@@ -261,19 +296,6 @@
             this.btnPlayer.UseVisualStyleBackColor = true;
             this.btnPlayer.Click += new System.EventHandler(this.btnPlayer_Click);
             // 
-            // rtText
-            // 
-            this.rtText.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.rtText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtText.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.rtText.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtText.Location = new System.Drawing.Point(550, 258);
-            this.rtText.Name = "rtText";
-            this.rtText.ReadOnly = true;
-            this.rtText.Size = new System.Drawing.Size(215, 155);
-            this.rtText.TabIndex = 2;
-            this.rtText.Text = "Lượt chơi:\n        O đi trước\n        X đi sau ";
-            // 
             // pnlCaroBoard
             // 
             this.pnlCaroBoard.BackColor = System.Drawing.Color.FloralWhite;
@@ -290,6 +312,12 @@
             this.timerCount.Enabled = true;
             this.timerCount.Interval = 1000;
             this.timerCount.Tick += new System.EventHandler(this.timerCount_Tick);
+            // 
+            // timeText
+            // 
+            this.timeText.Enabled = true;
+            this.timeText.Interval = 25;
+            this.timeText.Tick += new System.EventHandler(this.timeText_Tick);
             // 
             // frmDisplay
             // 
@@ -311,6 +339,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.pnlDisplay.ResumeLayout(false);
+            this.pnlText.ResumeLayout(false);
+            this.pnlText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTitle)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -330,7 +360,6 @@
         private System.Windows.Forms.ToolStripMenuItem hướngDẫnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel pnlDisplay;
-        private System.Windows.Forms.RichTextBox rtText;
         private System.Windows.Forms.Panel pnlCaroBoard;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnCom;
@@ -341,6 +370,10 @@
         private System.Windows.Forms.PictureBox pictureTitle;
         private System.Windows.Forms.Label lbChessO;
         private System.Windows.Forms.Label lbChessX;
+        private System.Windows.Forms.Panel pnlText;
+        private System.Windows.Forms.Label lbTextHuongDan;
+        private System.Windows.Forms.Timer timeText;
+        private System.Windows.Forms.Label lbTurn;
     }
 }
 

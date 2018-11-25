@@ -32,6 +32,8 @@ namespace caro_Project_CShape
         private void frmDisplay_Load(object sender, EventArgs e)
         {
             Refresh();
+            lbTextHuongDan.Text = "";
+            lbTurn.Text = "Lượt chơi:\n    Cờ O đi trước\n    Cờ X đi sau";
         }
 
         #endregion
@@ -114,13 +116,33 @@ namespace caro_Project_CShape
         }
         private void hướngDẫnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            rtText.Text = "Luật chơi\nTrên bàn cờ 22x22 ô vuông.Một người đi X," +
-                " một người đi O.\nKhi đến lượt mình, người chơi phải tích vào một ô trên bàn cờ." +
-                "Người chơi phải tìm cách tích đủ 5 ô theo chiều dọc hoặc chiều ngang hoặc đường " +
-                "chéo mà không bị chặn 2 đầu thì sẽ thắng hoặc 5 ô và bị chặn một đầu sẽ thắng." +
-                "Nếu quá thời gian 30s mà người chơi không ra nước cờ coi như thua.\n\n " +
-                "    Luật hòa\n + Trong quá trình chơi, khi một chời chơi xin hòa và đối phương đồng ý." +
-                "\n + Khi đã đi hết bàn cờ mà chưa phân thắng bại thì cũng coi như hòa.";
+            lbTurn.Text = "";
+            lbTextHuongDan.Text = "Luật chơi" +
+                "\n  Trên bàn cờ 22x22 ô " +
+                "\n  vuông.Một người đi X," +
+                "\n  một người đi O." +
+                "\n  Khi đến lượt mình," +
+                "\n  người chơi phải tích" +
+                "\n  vào một ô trên bàn cờ." +
+                "\n  Người chơi phải tìm " +
+                "\n  cách tích đủ 5 ô theo" +
+                "\n  chiều dọc hoặc chiều " +
+                "\n  ngang hoặc đường " +
+                "\n  chéo mà không bị chặn " +
+                "\n  2 đầu thì sẽ thắng hoặc " +
+                "\n  5 ô và bị chặn một đầu " +
+                "\n  sẽ thắng." +
+                "\n  Nếu quá thời gian 30s " +
+                "\n  mà người chơi không ra " +
+                "\n  nước cờ coi như thua.\n\n " +
+                "  Luật hòa" +
+                "\n + Trong quá trình chơi, " +
+                "\n    khi một chời chơi " +
+                "\n    xin hòa và đối phương  " +
+                "\n    đồng Ý" +
+                "\n + Khi đã đi hết bàn cờ mà " +
+                "\n    chưa phân thắng bại " +
+                "\n    thì cũng coi như hòa.";
         }
         private void undoToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
@@ -160,5 +182,21 @@ namespace caro_Project_CShape
                 countTime = countTime + 1;
             }
         }
+
+
+        private void timeText_Tick(object sender, EventArgs e)
+        {
+            lbTurn.Location = new Point(lbTurn.Location.X, lbTurn.Location.Y - 1);
+            lbTextHuongDan.Location= new Point(lbTextHuongDan.Location.X, lbTextHuongDan.Location.Y - 1);
+            if (lbTurn.Location.Y+lbTurn.Height<0)
+            {
+                lbTurn.Location = new Point(lbTurn.Location.X, pnlText.Height);
+            }
+            if (lbTextHuongDan.Location.Y + lbTextHuongDan.Height < 0)
+            {
+                lbTextHuongDan.Location = new Point(lbTextHuongDan.Location.X, pnlText.Height);
+            }
+        }
+
     }
 }
