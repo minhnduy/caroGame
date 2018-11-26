@@ -49,6 +49,12 @@
     <Compile Include="caroChess.cs" />
     <Compile Include="chess.cs" />
     <Compile Include="chessBoard.cs" />
+    <Compile Include="rule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rule.Designer.cs">
+      <DependentUpon>rule.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDisplay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rule.resx">
+      <DependentUpon>rule.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -85,6 +94,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\title.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\winColumn.PNG" />
+    <Content Include="img\winDiagonal1.PNG" />
+    <Content Include="img\winDiagonal2.PNG" />
+    <Content Include="img\winRow.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

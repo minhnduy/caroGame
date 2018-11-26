@@ -45,7 +45,6 @@
             this.pnlText = new System.Windows.Forms.Panel();
             this.lbTurn = new System.Windows.Forms.Label();
             this.lbTextHuongDan = new System.Windows.Forms.Label();
-            this.pictureTitle = new System.Windows.Forms.PictureBox();
             this.lbChessO = new System.Windows.Forms.Label();
             this.lbChessX = new System.Windows.Forms.Label();
             this.lbTime = new System.Windows.Forms.Label();
@@ -55,6 +54,18 @@
             this.pnlCaroBoard = new System.Windows.Forms.Panel();
             this.timerCount = new System.Windows.Forms.Timer(this.components);
             this.timeText = new System.Windows.Forms.Timer(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.rowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.columnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagonal1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.diagonal2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txSetTime = new System.Windows.Forms.ToolStripTextBox();
+            this.lbTimeTotal = new System.Windows.Forms.Label();
+            this.pictureTitle = new System.Windows.Forms.PictureBox();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.txWairt = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip.SuspendLayout();
             this.pnlDisplay.SuspendLayout();
             this.pnlText.SuspendLayout();
@@ -77,6 +88,9 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameToolStripMenuItem,
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
             this.undoToolStripMenuItem,
             this.toolStripSeparator1,
             this.exitToolStripMenuItem});
@@ -90,7 +104,7 @@
             this.playerVsPlayerToolStripMenuItem,
             this.playerVsComputerToolStripMenuItem});
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newGameToolStripMenuItem.Text = "New Game";
             // 
             // playerVsPlayerToolStripMenuItem
@@ -111,20 +125,20 @@
             // 
             this.undoToolStripMenuItem.Name = "undoToolStripMenuItem";
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.undoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "&Undo";
             this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click_1);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "&Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -155,6 +169,7 @@
             // 
             this.pnlDisplay.BackColor = System.Drawing.Color.AntiqueWhite;
             this.pnlDisplay.CausesValidation = false;
+            this.pnlDisplay.Controls.Add(this.lbTimeTotal);
             this.pnlDisplay.Controls.Add(this.pnlText);
             this.pnlDisplay.Controls.Add(this.pictureTitle);
             this.pnlDisplay.Controls.Add(this.lbChessO);
@@ -202,16 +217,6 @@
             this.lbTextHuongDan.Size = new System.Drawing.Size(0, 17);
             this.lbTextHuongDan.TabIndex = 0;
             // 
-            // pictureTitle
-            // 
-            this.pictureTitle.Image = ((System.Drawing.Image)(resources.GetObject("pictureTitle.Image")));
-            this.pictureTitle.Location = new System.Drawing.Point(550, 30);
-            this.pictureTitle.Name = "pictureTitle";
-            this.pictureTitle.Size = new System.Drawing.Size(215, 215);
-            this.pictureTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureTitle.TabIndex = 0;
-            this.pictureTitle.TabStop = false;
-            // 
             // lbChessO
             // 
             this.lbChessO.Font = new System.Drawing.Font("iCiel Cucho Bold", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,7 +242,7 @@
             this.lbTime.Name = "lbTime";
             this.lbTime.Size = new System.Drawing.Size(100, 23);
             this.lbTime.TabIndex = 4;
-            this.lbTime.Text = "Time:  30s";
+            this.lbTime.Text = "Time: ";
             // 
             // btnExit
             // 
@@ -319,6 +324,102 @@
             this.timeText.Interval = 25;
             this.timeText.Tick += new System.EventHandler(this.timeText_Tick);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rowToolStripMenuItem,
+            this.columnToolStripMenuItem,
+            this.diagonal1ToolStripMenuItem,
+            this.diagonal2ToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem1.Text = "Rule";
+            // 
+            // rowToolStripMenuItem
+            // 
+            this.rowToolStripMenuItem.Name = "rowToolStripMenuItem";
+            this.rowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rowToolStripMenuItem.Text = "Row ";
+            this.rowToolStripMenuItem.Click += new System.EventHandler(this.rowToolStripMenuItem_Click);
+            // 
+            // columnToolStripMenuItem
+            // 
+            this.columnToolStripMenuItem.Name = "columnToolStripMenuItem";
+            this.columnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.columnToolStripMenuItem.Text = "Column";
+            this.columnToolStripMenuItem.Click += new System.EventHandler(this.columnToolStripMenuItem_Click);
+            // 
+            // diagonal1ToolStripMenuItem
+            // 
+            this.diagonal1ToolStripMenuItem.Name = "diagonal1ToolStripMenuItem";
+            this.diagonal1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diagonal1ToolStripMenuItem.Text = "Diagonal #1";
+            this.diagonal1ToolStripMenuItem.Click += new System.EventHandler(this.diagonal1ToolStripMenuItem_Click);
+            // 
+            // diagonal2ToolStripMenuItem
+            // 
+            this.diagonal2ToolStripMenuItem.Name = "diagonal2ToolStripMenuItem";
+            this.diagonal2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.diagonal2ToolStripMenuItem.Text = "Diagonal #2";
+            this.diagonal2ToolStripMenuItem.Click += new System.EventHandler(this.diagonal2ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txSetTime});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem2.Text = "Set Time Total (s)";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // txSetTime
+            // 
+            this.txSetTime.Name = "txSetTime";
+            this.txSetTime.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txSetTime.Size = new System.Drawing.Size(100, 23);
+            this.txSetTime.Text = "60";
+            // 
+            // lbTimeTotal
+            // 
+            this.lbTimeTotal.AutoSize = true;
+            this.lbTimeTotal.Font = new System.Drawing.Font("iCiel Cucho", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTimeTotal.Location = new System.Drawing.Point(30, 4);
+            this.lbTimeTotal.Name = "lbTimeTotal";
+            this.lbTimeTotal.Size = new System.Drawing.Size(114, 23);
+            this.lbTimeTotal.TabIndex = 6;
+            this.lbTimeTotal.Text = "Time Total: 0s";
+            // 
+            // pictureTitle
+            // 
+            this.pictureTitle.Image = ((System.Drawing.Image)(resources.GetObject("pictureTitle.Image")));
+            this.pictureTitle.Location = new System.Drawing.Point(550, 30);
+            this.pictureTitle.Name = "pictureTitle";
+            this.pictureTitle.Size = new System.Drawing.Size(215, 215);
+            this.pictureTitle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureTitle.TabIndex = 0;
+            this.pictureTitle.TabStop = false;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txWairt});
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem3.Text = "Set Time Chờ";
+            // 
+            // txWairt
+            // 
+            this.txWairt.Name = "txWairt";
+            this.txWairt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txWairt.Size = new System.Drawing.Size(100, 23);
+            this.txWairt.Text = "30";
+            // 
             // frmDisplay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -339,6 +440,7 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.pnlDisplay.ResumeLayout(false);
+            this.pnlDisplay.PerformLayout();
             this.pnlText.ResumeLayout(false);
             this.pnlText.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTitle)).EndInit();
@@ -374,6 +476,17 @@
         private System.Windows.Forms.Label lbTextHuongDan;
         private System.Windows.Forms.Timer timeText;
         private System.Windows.Forms.Label lbTurn;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem rowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem columnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diagonal1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem diagonal2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripTextBox txSetTime;
+        private System.Windows.Forms.Label lbTimeTotal;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripTextBox txWairt;
     }
 }
 

@@ -18,7 +18,10 @@ namespace caro_Project_CShape
         private caroChess _chess;
         private Graphics g;
         private int countTime = 0;
-
+        public int timeTotal = 0;
+        public int setTime;
+        public int setTimeWait;
+        
         #endregion
 
         #region phương thức khởi tạo ban đầu
@@ -28,12 +31,14 @@ namespace caro_Project_CShape
             _chess = new caroChess();
             g = pnlCaroBoard.CreateGraphics();
             _chess.initArrChess();
+            //setTime = 60;
         }
         private void frmDisplay_Load(object sender, EventArgs e)
         {
             Refresh();
             lbTextHuongDan.Text = "";
             lbTurn.Text = "Lượt chơi:\n    Cờ O đi trước\n    Cờ X đi sau";
+            setTimeWait = Int32.Parse(txWairt.Text);
         }
 
         #endregion
@@ -52,17 +57,48 @@ namespace caro_Project_CShape
             if(_chess.playChess(g,e.X,e.Y))
             {
                 if (_chess.checkWin(g))
-                    _chess.endGame();
+                    endGame();
                 else if(_chess.gameMode==1)
                 {
                     _chess.Computer(g);
                     if (_chess.checkWin(g))
-                        _chess.endGame();
+                        endGame();
                 }
                 countTime = 0;
             }
             lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
             lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
+        }
+
+        public void endGame()
+        {
+            _chess.ready = false;
+            if (_chess.gameMode == 1)
+                switch (_chess.check_win)
+                {
+                    case 3:
+                        MessageBox.Show("HOÀ!!\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết quả trò chơi", MessageBoxButtons.OK);
+                        break;
+                    case 1:
+                        MessageBox.Show("Bạn Thua rồi!!\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết quả trò chơi", MessageBoxButtons.OK);
+                        break;
+                    case 2:
+                        MessageBox.Show("Bạn là người chiến thắng!!\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết quả trò chơi", MessageBoxButtons.OK);
+                        break;
+                }
+            else
+                switch (_chess.check_win)
+                {
+                    case 3:
+                        MessageBox.Show("HOÀ!!\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết quả trò chơi", MessageBoxButtons.OK);
+                        break;
+                    case 1:
+                        MessageBox.Show("Người chơi cờ O thắng!!\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết quả trò chơi", MessageBoxButtons.OK);
+                        break;
+                    case 2:
+                        MessageBox.Show("Người chơi cờ X thắng!!\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết quả trò chơi", MessageBoxButtons.OK);
+                        break;
+                }
         }
 
         #region button Click
@@ -82,7 +118,9 @@ namespace caro_Project_CShape
                 _chess.start_2Player(g);
                 lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
                 lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
-
+                timeTotal = 0;
+                setTime = Int32.Parse(txSetTime.Text);
+                setTimeWait = Int32.Parse(txWairt.Text);
             }
         }
         private void btnCom_Click(object sender, EventArgs e)
@@ -96,6 +134,9 @@ namespace caro_Project_CShape
                 countTime = 0;
                 lbChessO.Text = "Chess O: " + _chess.chessO.ToString();
                 lbChessX.Text = "Chess X: " + _chess.chessX.ToString();
+                timeTotal = 0;
+                setTime = Int32.Parse(txSetTime.Text);
+                setTimeWait = Int32.Parse(txWairt.Text);
             }
         }
 
@@ -170,19 +211,18 @@ namespace caro_Project_CShape
         {
             if (_chess.ready == true)
             {
-                lbTime.Text = "Time: " + (30 - countTime).ToString() + "s";
-                if (countTime == 30)
+                lbTime.Text = "Time: " + (setTimeWait - countTime).ToString() + "s";
+                if (countTime == setTimeWait)
                 {
                     _chess.ready = false;
                     if (_chess.turn == 1)
-                        MessageBox.Show("Time Out cờ O thua ", "Kết Quả Trò Chơi", MessageBoxButtons.OK);
+                        MessageBox.Show("Time Out cờ O thua \nThời gian chơi: " + (timeTotal-1).ToString()+"s", "Kết Quả Trò Chơi" , MessageBoxButtons.OK);
                     else
-                        MessageBox.Show("Time Out cờ X thua", "Kết Quả Trò Chơi", MessageBoxButtons.OK);
+                        MessageBox.Show("Time Out cờ X thua\nThời gian chơi: " + (timeTotal-1).ToString() + "s", "Kết Quả Trò Chơi" , MessageBoxButtons.OK);
                 }
                 countTime = countTime + 1;
             }
         }
-
 
         private void timeText_Tick(object sender, EventArgs e)
         {
@@ -198,5 +238,61 @@ namespace caro_Project_CShape
             }
         }
 
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if(txSetTime.Text!="31")
+            setTime = Int32.Parse(txSetTime.Text);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            if (_chess.ready==true)
+            {
+                lbTimeTotal.Text = "Time Total: " + timeTotal.ToString() + " s";
+                if(timeTotal==setTime)
+                {
+                    _chess.ready = false;
+                    MessageBox.Show("Hết thời gian chơi: HÒA", "Kết quả trò chơi", MessageBoxButtons.OK);
+                }
+                timeTotal += 1;
+            }
+        }
+
+        private void rowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rule r = new rule();
+            r.BackgroundImage = global::caro_Project_CShape.Properties.Resources.winRow;
+            r.Text = "Rule Row";
+            //r.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            r.ShowDialog();
+        }
+
+        private void columnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rule r = new rule();
+            r.BackgroundImage = global::caro_Project_CShape.Properties.Resources.winColumn;
+            r.Text = "Rule Column";
+            //r.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            r.ShowDialog();
+        }
+
+        private void diagonal1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rule r = new rule();
+            r.BackgroundImage = global::caro_Project_CShape.Properties.Resources.winDiagonal1;
+            r.Text = "Rule Diagonal #1";
+            //r.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            r.ShowDialog();
+        }
+
+        private void diagonal2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rule r = new rule();
+            r.BackgroundImage = global::caro_Project_CShape.Properties.Resources.winDiagonal2;
+            r.Text = "Rule Diagonal #2";
+            //r.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            r.ShowDialog();
+        }
     }
 }
