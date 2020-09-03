@@ -32,5 +32,6 @@ namespace caro_Project_CShape
         public Point Pos { get => _pos; set => _pos = value; }
         public int Own { get => _own; set => _own = value; }
         //test pull
+        //test pull
     }
 }
