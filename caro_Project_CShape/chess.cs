@@ -33,5 +33,6 @@ namespace caro_Project_CShape
         public int Own { get => _own; set => _own = value; }
         //test pull
         //test pull
+        //con cac
     }
 }
